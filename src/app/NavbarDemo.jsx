@@ -101,7 +101,7 @@ function NavbarComponent({ className }) {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
           {/* Left - Contact Info */}
-          <ul className="flex flex-wrap items-center gap-4 md:gap-10 text-xs sm:text-sm font-medium">
+          <ul className="flex md:font-bold md:text-xl flex-wrap items-center gap-4 md:gap-10 text-xs sm:text-sm font-medium">
             <li>
               <Link
                 href="mailto:info@omtechnoware.com"
@@ -222,9 +222,8 @@ function NavbarComponent({ className }) {
           >
             <MenuItem setActive={setActive} active={active} item="Blog">
               <div className="flex flex-col space-y-4 text-sm">
-                <HoveredLink href="/blogs">Blogs</HoveredLink>
-                <HoveredLink href="/articles">Articles</HoveredLink>
-                <HoveredLink href="/news">News</HoveredLink>
+                <HoveredLink href="/blog">Blogs</HoveredLink>
+                <HoveredLink href="/blog">Tranding Blogs</HoveredLink>
               </div>
             </MenuItem>
           </div>

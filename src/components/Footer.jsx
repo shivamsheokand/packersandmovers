@@ -150,6 +150,13 @@ const Footer = () => {
             <p className="text-gray-400">
               © {new Date().getFullYear()} OM Technoware. All rights reserved.
             </p>
+            <span className="block text-center mt-8 text-sm md:text-base font-medium text-gray-700">
+              Developed By :-{" "}
+              <span className="text-red-600 font-semibold">
+                "चौधरी शिवम श्योकंद"
+              </span>
+            </span>
+
             <div className="flex gap-6">
               <Link
                 href="/privacy-policy"

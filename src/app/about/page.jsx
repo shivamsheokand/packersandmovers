@@ -5,6 +5,41 @@ import { FaAward, FaUsers, FaTruck, FaHandshake } from "react-icons/fa";
 import { PageContainer } from "../../components/ui/page-container";
 
 const AboutPage = () => {
+  const achievements = [
+    { number: "15+", text: "Years Experience" },
+    { number: "10K+", text: "Happy Customers" },
+    { number: "50+", text: "Cities Covered" },
+    { number: "100%", text: "Satisfaction Rate" },
+  ];
+
+  const teamMembers = [
+    {
+      name: "Rajesh Kumar",
+      position: "Founder & CEO",
+      image: "https://i.pravatar.cc/300?img=11",
+      bio: "20+ years of experience in logistics and moving industry",
+    },
+    {
+      name: "Priya Singh",
+      position: "Operations Head",
+      image: "https://i.pravatar.cc/300?img=5",
+      bio: "Expert in managing complex relocation projects",
+    },
+    {
+      name: "Amit Patel",
+      position: "Customer Relations",
+      image: "https://i.pravatar.cc/300?img=8",
+      bio: "Dedicated to ensuring customer satisfaction",
+    },
+  ];
+
+  const certifications = [
+    "ISO 9001:2015 Certified",
+    "IBA Approved",
+    "Government Registered",
+    "FIDI Certified",
+  ];
+
   return (
     <PageContainer>
       {/* About Hero Section */}
