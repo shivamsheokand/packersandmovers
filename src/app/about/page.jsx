@@ -26,6 +26,20 @@ const AboutPage = () => {
             </p>
           </motion.div>
 
+          {/* Hero Image */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mt-8"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+              alt="Moving truck"
+              className="w-full h-96 object-cover rounded-lg shadow-lg"
+            />
+          </motion.div>
+
           {/* Stats Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -54,7 +68,7 @@ const AboutPage = () => {
       </div>
 
       {/* Why Choose Us Section */}
-      <div className="py-16">
+      <div className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -71,13 +85,21 @@ const AboutPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-center p-6 rounded-lg bg-white shadow-lg"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
             >
-              <FaAward className="text-4xl text-red-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
-              <p className="text-gray-600">
-                Highly trained and experienced professionals
-              </p>
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+                alt="Expert Team"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6 text-center">
+                <FaAward className="text-4xl text-red-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
+                <p className="text-gray-600">
+                  Our team comprises highly trained professionals who ensure
+                  your belongings are handled with utmost care.
+                </p>
+              </div>
             </motion.div>
 
             {/* Feature 2 */}
@@ -85,13 +107,21 @@ const AboutPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-center p-6 rounded-lg bg-white shadow-lg"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
             >
-              <FaUsers className="text-4xl text-red-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Customer First</h3>
-              <p className="text-gray-600">
-                Dedicated to customer satisfaction
-              </p>
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+                alt="Customer First"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6 text-center">
+                <FaUsers className="text-4xl text-red-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Customer First</h3>
+                <p className="text-gray-600">
+                  We prioritize customer satisfaction, ensuring a seamless
+                  moving experience from start to finish.
+                </p>
+              </div>
             </motion.div>
 
             {/* Feature 3 */}
@@ -99,13 +129,21 @@ const AboutPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-center p-6 rounded-lg bg-white shadow-lg"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
             >
-              <FaTruck className="text-4xl text-red-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Modern Fleet</h3>
-              <p className="text-gray-600">
-                Well-maintained vehicles for safe transit
-              </p>
+              <img
+                src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+                alt="Modern Fleet"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6 text-center">
+                <FaTruck className="text-4xl text-red-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Modern Fleet</h3>
+                <p className="text-gray-600">
+                  Our fleet of well-maintained vehicles ensures safe and timely
+                  delivery of your possessions.
+                </p>
+              </div>
             </motion.div>
 
             {/* Feature 4 */}
@@ -113,17 +151,67 @@ const AboutPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-center p-6 rounded-lg bg-white shadow-lg"
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
             >
-              <FaHandshake className="text-4xl text-red-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">
-                Transparent Pricing
-              </h3>
-              <p className="text-gray-600">
-                No hidden costs, clear communication
-              </p>
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+                alt="Transparent Pricing"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6 text-center">
+                <FaHandshake className="text-4xl text-red-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">
+                  Transparent Pricing
+                </h3>
+                <p className="text-gray-600">
+                  We offer clear and upfront pricing with no hidden charges,
+                  ensuring trust and reliability.
+                </p>
+              </div>
             </motion.div>
           </div>
+        </div>
+      </div>
+
+      {/* Truck Image with Text Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="md:w-1/2 mb-8 md:mb-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+              alt="Moving Truck"
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+          </motion.div>
+
+          {/* Text */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="md:w-1/2 md:pl-12"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Reliable and Efficient Moving Services
+            </h2>
+            <p className="text-gray-600 mb-4">
+              At OM Technoware Packers & Movers, we understand the importance of
+              a hassle-free moving experience. Our dedicated team ensures that
+              every aspect of your move is handled with professionalism and
+              care.
+            </p>
+            <p className="text-gray-600">
+              From packing to transportation, we offer comprehensive services
+              tailored to meet your specific needs. Trust us to make your
+              relocation smooth and stress-free.
+            </p>
+          </motion.div>
         </div>
       </div>
     </PageContainer>
