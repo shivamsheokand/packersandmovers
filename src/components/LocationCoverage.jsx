@@ -8,62 +8,62 @@ const majorCities = [
   {
     name: "Delhi",
     image:
-      "https://images.unsplash.com/photo-1590490350334-4c1b3b0b1f3e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Mumbai",
     image:
-      "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Bangalore",
     image:
-      "https://images.unsplash.com/photo-1603262110263-3f4e4e1f1f1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Chennai",
     image:
-      "https://images.unsplash.com/photo-1603787081152-4e1f1e1f1e1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Hyderabad",
     image:
-      "https://images.unsplash.com/photo-1603787081152-4e1f1e1f1e1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Kolkata",
     image:
-      "https://images.unsplash.com/photo-1603787081152-4e1f1e1f1e1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Pune",
     image:
-      "https://images.unsplash.com/photo-1603787081152-4e1f1e1f1e1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Ahmedabad",
     image:
-      "https://images.unsplash.com/photo-1603787081152-4e1f1e1f1e1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Jaipur",
     image:
-      "https://images.unsplash.com/photo-1603787081152-4e1f1e1f1e1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Lucknow",
     image:
-      "https://images.unsplash.com/photo-1603787081152-4e1f1e1f1e1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Chandigarh",
     image:
-      "https://images.unsplash.com/photo-1603787081152-4e1f1e1f1e1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Kochi",
     image:
-      "https://images.unsplash.com/photo-1603787081152-4e1f1e1f1e1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80",
   },
 ];
 

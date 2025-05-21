@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "images.unsplash.com",
-      "cdn.pixabay.com",
-      "expresslogisticsmovers.com",
-    ],
+    domains: ["images.unsplash.com", "cdn.pixabay.com"],
+    remotePatterns: [new URL("https://unsplash.com/")],
   },
 };
 
