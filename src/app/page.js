@@ -1,10 +1,14 @@
 "use client";
 import React from "react";
-import { NavbarDemo } from "@/app/NavbarDemo";
+import HeroSection from "../components/HeroSection";
+import { PageContainer } from "../components/ui/page-container";
+import ThreeDMarqueePage from "./pages/ThreeDMarqueeDemoSecond";
+
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen ">
-      <NavbarDemo />
-    </div>
+    <PageContainer className="pt-0">
+      <ThreeDMarqueePage />
+      <HeroSection />
+    </PageContainer>
   );
 }

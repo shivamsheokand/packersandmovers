@@ -6,28 +6,39 @@ import {
   Menu,
   MenuItem,
   ProductItem,
-} from "@/components/ui/navbar-menu";
-import { cn } from "@/lib/utils";
+} from "../components/ui/navbar-menu";
+import { cn } from "../lib/utils.ts";
 import { Menu as MenuIcon, X } from "lucide-react";
-import ThreeDMarqueePage from "./pages/ThreeDMarqueeDemoSecond";
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaFacebookF,
+  FaWhatsapp,
+} from "react-icons/fa";
+
+import HeroSection from "../components/HeroSection";
+
+export function Navbar({ className }) {
+  return <NavbarComponent className={className} />;
+}
 
 export function NavbarDemo() {
   return (
     <div className="relative w-full flex flex-col items-center justify-start">
       <Navbar className="" />
-      <div className="flex flex-col items-center justify-center w-full h-screen mt-4 md:mt-4 ">
-        <ThreeDMarqueePage />
-      </div>
+      <HeroSection />
     </div>
   );
 }
 
-function Navbar({ className }) {
+function NavbarComponent({ className }) {
   const [active, setActive] = useState(null);
   const [clickedItem, setClickedItem] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileSubmenu, setMobileSubmenu] = useState("");
+  const [hideMiniHeader, setHideMiniHeader] = useState(false);
   const navRef = useRef();
+  const lastScrollTop = useRef(0);
 
   const handleMouseEnter = (item) => {
     if (!clickedItem) setActive(item);
@@ -55,31 +66,90 @@ function Navbar({ className }) {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop.current) {
+        setHideMiniHeader(true); // hide on scroll down
+      } else {
+        setHideMiniHeader(false); // show on scroll up
+      }
+      lastScrollTop.current = scrollTop <= 0 ? 0 : scrollTop;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <nav
       ref={navRef}
-      className={cn("fixed top-0 inset-x-0 z-50 bg-white shadow-md", className)}
+      className={cn("fixed top-0 inset-x-0 z-50 bg-white", className)}
     >
       {/* Mini Header */}
-      <div className="hidden md:flex items-center justify-center w-full bg-gray-100 border-b  text-sm text-gray-700 font-medium">
-        <ul className="flex space-x-6">
-          <li>
-            <Link href="mailto:info@omtechnoware.com">
-              info@omtechnoware.com
+      <div
+        className={cn(
+          "w-full text-white text-xs sm:text-sm font-medium bg-red-600 transition-all duration-300 ease-in-out",
+          hideMiniHeader
+            ? "h-0 opacity-0 overflow-hidden"
+            : "h-auto opacity-100"
+        )}
+      >
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
+          {/* Left - Contact Info */}
+          <ul className="flex flex-wrap items-center gap-4 md:gap-10 text-xs sm:text-sm font-medium">
+            <li>
+              <Link
+                href="mailto:info@omtechnoware.com"
+                className="hover:underline"
+              >
+                info@omtechnoware.com
+              </Link>
+            </li>
+            <li>
+              <Link href="tel:+911234567890" className="hover:underline">
+                +91 12345 67890
+              </Link>
+            </li>
+          </ul>
+
+          {/* Right - Social Icons */}
+          <div className="flex items-center gap-4 text-white text-lg">
+            <Link
+              href="https://www.instagram.com"
+              target="_blank"
+              className="hover:text-gray-300"
+            >
+              <FaInstagram />
             </Link>
-          </li>
-          <li>
-            <Link href="tel:+911234567890">+91 12345 67890</Link>
-          </li>
-          <li>
-            <Link href="https://wa.me/1234567890" target="_blank">
-              WhatsApp
+            <Link
+              href="https://www.linkedin.com"
+              target="_blank"
+              className="hover:text-gray-300"
+            >
+              {" "}
+              <FaLinkedinIn />
             </Link>
-          </li>
-        </ul>
+            <Link
+              href="https://www.facebook.com"
+              target="_blank"
+              className="hover:text-gray-300"
+            >
+              <FaFacebookF />
+            </Link>
+            <Link
+              href="https://wa.me/1234567890"
+              target="_blank"
+              className="hover:text-gray-300"
+            >
+              <FaWhatsapp />
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* Main Nav */}
@@ -95,7 +165,7 @@ function Navbar({ className }) {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-16">
+        <div className="hidden md:flex items-center space-x-16 font-bold">
           <Link href="/">
             <HoveredLink href="/">Home</HoveredLink>
           </Link>
@@ -176,7 +246,7 @@ function Navbar({ className }) {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden mt-2 flex flex-col space-y-3 bg-white p-4 rounded shadow-lg">
+        <div className="md:hidden mt-2 flex flex-col space-y-3 bg-white p-4">
           <Link href="/" onClick={() => setMenuOpen(false)}>
             <HoveredLink href="/">Home</HoveredLink>
           </Link>
@@ -184,7 +254,6 @@ function Navbar({ className }) {
             <HoveredLink href="/about">About Us</HoveredLink>
           </Link>
 
-          {/* Mobile Accordion Menu */}
           <button
             onClick={() =>
               setMobileSubmenu(mobileSubmenu === "services" ? "" : "services")
