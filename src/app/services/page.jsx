@@ -8,111 +8,173 @@ import {
   FaGlobeAmericas,
   FaBox,
   FaTruckMoving,
+  FaCheckCircle,
 } from "react-icons/fa";
 
-const ServicesPage = () => {
-  const services = [
-    {
-      icon: <FaHome />,
-      title: "Household Shifting",
-      description:
-        "Complete packing and moving solutions for your home relocation needs",
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
     },
-    {
-      icon: <FaWarehouse />,
-      title: "Warehouse Storage",
-      description:
-        "Secure storage facilities for short and long-term requirements",
-    },
-    {
-      icon: <FaBuilding />,
-      title: "Office Relocation",
-      description:
-        "Professional moving services for your business with minimal downtime",
-    },
-    {
-      icon: <FaGlobeAmericas />,
-      title: "International Moving",
-      description:
-        "Reliable overseas relocation services with proper documentation",
-    },
-    {
-      icon: <FaBox />,
-      title: "Packing & Unpacking",
-      description:
-        "Expert packing services using quality materials for maximum protection",
-    },
-    {
-      icon: <FaTruckMoving />,
-      title: "Vehicle Transportation",
-      description: "Safe and secure transportation of cars and other vehicles",
-    },
-  ];
+  },
+};
 
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const services = [
+  {
+    icon: <FaHome className="text-4xl text-red-600" />,
+    title: "Household Shifting",
+    description:
+      "Complete packing and moving solutions for your home relocation needs",
+    features: [
+      "Free pre-move survey",
+      "Professional packing team",
+      "Safe transportation",
+      "Unpacking & rearranging",
+    ],
+  },
+  {
+    icon: <FaBuilding className="text-4xl text-red-600" />,
+    title: "Office Relocation",
+    description:
+      "Efficient and secure office moving services with minimal downtime",
+    features: [
+      "IT equipment handling",
+      "Furniture dismantling",
+      "Weekend moves available",
+      "Asset management",
+    ],
+  },
+  {
+    icon: <FaTruckMoving className="text-4xl text-red-600" />,
+    title: "Vehicle Transportation",
+    description: "Safe and secure vehicle transportation across cities",
+    features: [
+      "Door-to-door delivery",
+      "GPS tracking",
+      "Insurance coverage",
+      "Enclosed carriers",
+    ],
+  },
+  {
+    icon: <FaWarehouse className="text-4xl text-red-600" />,
+    title: "Warehouse Storage",
+    description: "Secure storage solutions for your belongings",
+    features: [
+      "24/7 surveillance",
+      "Climate control",
+      "Inventory management",
+      "Flexible duration",
+    ],
+  },
+  {
+    icon: <FaGlobeAmericas className="text-4xl text-red-600" />,
+    title: "International Moving",
+    description: "Comprehensive international relocation services",
+    features: [
+      "Custom clearance",
+      "Documentation support",
+      "Air & sea freight",
+      "Door-to-door service",
+    ],
+  },
+  {
+    icon: <FaBox className="text-4xl text-red-600" />,
+    title: "Packing & Unpacking",
+    description: "Professional packing services with quality materials",
+    features: [
+      "Quality packing materials",
+      "Fragile item handling",
+      "Systematic labeling",
+      "Furniture assembly",
+    ],
+  },
+];
+
+const ServicesPage = () => {
   return (
-    <div className="pt-24">
-      {/* Services Hero Section */}
-      <div className="bg-gradient-to-b from-blue-50 to-white py-16">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="text-red-600">Premium</span> Services
-            </h1>
-            <p className="text-lg text-gray-600">
-              Comprehensive moving solutions tailored to your needs. We handle
-              everything from packing to transportation with utmost care and
-              professionalism.
-            </p>
-          </motion.div>
-        </div>
-      </div>
+    <div className="min-h-screen bg-gray-50 py-16">
+      {/* Hero Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8 mb-16"
+      >
+        <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-6">
+          Our Moving Services
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Professional moving and packing solutions tailored to your needs. From
+          local home relocation to international moving, we've got you covered.
+        </p>
+      </motion.div>
 
       {/* Services Grid */}
-      <div className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 text-2xl mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </motion.div>
-            ))}
-          </div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-4">{service.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-6">{service.description}</p>
+                <ul className="space-y-2 text-left w-full">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-gray-700">
+                      <FaCheckCircle className="text-green-500 mr-2" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* CTA Section */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="bg-red-600 text-white py-16"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16"
       >
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your Move?
-          </h2>
+        <div className="bg-red-600 text-white rounded-lg px-6 py-12 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Move?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Get in touch with us today for a free quote and let us help you plan
-            your perfect move
+            Get in touch with us for a free consultation and quote. We'll help
+            make your move stress-free!
           </p>
-          <button className="bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-            Get Free Quote
-          </button>
+          <a
+            href="/get-quote"
+            className="inline-block bg-white text-red-600 py-3 px-8 rounded-md font-semibold hover:bg-gray-100 transition-colors duration-300"
+          >
+            Get a Free Quote
+          </a>
         </div>
       </motion.div>
     </div>

@@ -14,9 +14,38 @@ import {
   FaLinkedinIn,
   FaFacebookF,
   FaWhatsapp,
+  FaChevronDown,
 } from "react-icons/fa";
 
 import HeroSection from "../components/HeroSection";
+
+const serviceLinks = [
+  { title: "Home Relocation", href: "/services#home-relocation" },
+  { title: "Office Shifting", href: "/services#office-shifting" },
+  { title: "Vehicle Transportation", href: "/services#vehicle-transport" },
+  { title: "Warehouse Storage", href: "/services#warehouse" },
+  { title: "International Moving", href: "/services#international" },
+  { title: "Packing & Unpacking", href: "/services#packing" },
+];
+
+const mediaLinks = [
+  {
+    title: "Photos",
+    href: "/media#photos",
+    description: "View our gallery of moving and packing services",
+  },
+  {
+    title: "Videos",
+    href: "/media#videos",
+    description: "Watch our service showcase videos",
+  },
+];
+
+const blogLinks = [
+  { title: "All Posts", href: "/blog" },
+  { title: "Moving Tips", href: "/blog?category=tips" },
+  { title: "Packing Guides", href: "/blog?category=guides" },
+];
 
 export function Navbar({ className }) {
   return <NavbarComponent className={className} />;
@@ -155,14 +184,17 @@ function NavbarComponent({ className }) {
       {/* Main Nav */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <img
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAtFBMVEVHcEwHAKkIAKkIAKkGALYIAKkFAKwFAKoIAKkIAKkGAKsDALYDAK8GAKoGAKv7Cwf7Cgf8CgX7CgcHAKkGAKv6Cgj6Cgn5CgoSAKcAAKsIAKnvCRb7Cgf+CgDFCEQAAK76Cgj7CgjPCEgCAK77CgbUCEXLCTrLCTrMCTlRA45TA41TA44AALNaA5VfBI/5Cgr5Cgr5Cgr6Cgh4BYP7Cgj/DAD6Cgj5CgoEAKyaB3veCTj1ChWcs7fVAAAAPHRSTlMAFiEsCVWe0vb/ekZqk+0VufLL4j3m//qp/4A0qv99rUFyiryBhf+n//+s4f+Fht2RSw1lICXE1YgZjl2US3MkAAABJElEQVR4Ac3QBXKEQBRF0YfTMDh83DLu7vtf17hWFpDc8j7t+A9xvCAInPh7XJIVld1SFe3LRb0hCbzAcxwvGebF9RdZtuNaMvMAnykA9AvzTwwoJCeKmQ/jOgMQTZY8LCUXWV6UzIB5R0hMe2BFGer8p8k8nj1QZPwT8wytvG0qcRnHd+SfuyLtdFH0iv6gf2l4X4ln/qiENhrndp47eYB31hVZBC2e5NmUZuEHztNPnFFFHzhdAOCZ2vDiZW5jtfjAOV1XwmCMlet8A3xii7b3T99J4v5wBMcd2i+siTYLYGdoiawYzWZUlvoLF0QU1tB32m4nG8ZuZ8gNWNXi+XPXsuMKj9Z1a45nqw3dCoOt606D7SzFZ6vanjpETrCZXTb4286DVhvvrRwAvQAAAABJRU5ErkJggg=="
-            alt="Logo"
-            className="h-10 w-10 rounded-full"
-          />
-          <span className="font-bold text-lg">OM Technoware</span>
-        </div>
+        <Link href="/">
+          <div className="flex items-center gap-2">
+            {/* Logo Image */}
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAtFBMVEVHcEwHAKkIAKkIAKkGALYIAKkFAKwFAKoIAKkIAKkGAKsDALYDAK8GAKoGAKv7Cwf7Cgf8CgX7CgcHAKkGAKv6Cgj6Cgn5CgoSAKcAAKsIAKnvCRb7Cgf+CgDFCEQAAK76Cgj7CgjPCEgCAK77CgbUCEXLCTrLCTrMCTlRA45TA41TA44AALNaA5VfBI/5Cgr5Cgr5Cgr6Cgh4BYP7Cgj/DAD6Cgj5CgoEAKyaB3veCTj1ChWcs7fVAAAAPHRSTlMAFiEsCVWe0vb/ekZqk+0VufLL4j3m//qp/4A0qv99rUFyiryBhf+n//+s4f+Fht2RSw1lICXE1YgZjl2US3MkAAABJElEQVR4Ac3QBXKEQBRF0YfTMDh83DLu7vtf17hWFpDc8j7t+A9xvCAInPh7XJIVld1SFe3LRb0hCbzAcxwvGebF9RdZtuNaMvMAnykA9AvzTwwoJCeKmQ/jOgMQTZY8LCUXWV6UzIB5R0hMe2BFGer8p8k8nj1QZPwT8wytvG0qcRnHd+SfuyLtdFH0iv6gf2l4X4ln/qiENhrndp47eYB31hVZBC2e5NmUZuEHztNPnFFFHzhdAOCZ2vDiZW5jtfjAOV1XwmCMlet8A3xii7b3T99J4v5wBMcd2i+siTYLYGdoiawYzWZUlvoLF0QU1tB32m4nG8ZuZ8gNWNXi+XPXsuMKj9Z1a45nqw3dCoOt606D7SzFZ6vanjpETrCZXTb4286DVhvvrRwAvQAAAABJRU5ErkJggg=="
+              alt="Logo"
+              className="h-10 w-10 rounded-full"
+            />
+            <span className="font-bold text-lg">OM Technoware</span>
+          </div>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-16 font-bold">
@@ -180,14 +212,24 @@ function NavbarComponent({ className }) {
           >
             <MenuItem setActive={setActive} active={active} item="Services">
               <div className="flex flex-col space-y-4 text-sm">
-                <HoveredLink href="/web-dev">Web Development</HoveredLink>
-                <HoveredLink href="/interface-design">
-                  Interface Design
+                <HoveredLink href="/services#home-relocation">
+                  Home Relocation
                 </HoveredLink>
-                <HoveredLink href="/seo">
-                  Search Engine Optimization
+                <HoveredLink href="/services#office-shifting">
+                  Office Shifting
                 </HoveredLink>
-                <HoveredLink href="/branding">Branding</HoveredLink>
+                <HoveredLink href="/services#vehicle-transport">
+                  Vehicle Transportation
+                </HoveredLink>
+                <HoveredLink href="/services#warehouse">
+                  Warehouse Storage
+                </HoveredLink>
+                <HoveredLink href="/services#international">
+                  International Moving
+                </HoveredLink>
+                <HoveredLink href="/services#packing">
+                  Packing & Unpacking
+                </HoveredLink>
               </div>
             </MenuItem>
           </div>
@@ -201,15 +243,15 @@ function NavbarComponent({ className }) {
               <div className="text-sm grid grid-cols-1 gap-10 p-4">
                 <ProductItem
                   title="Photos"
-                  href="/photos"
-                  src="https://www.yrcpackersmovers.com/admin/assets/images/1717653852yrc%20(18).jpeg"
-                  description="Tech event & team photos."
+                  href="/media#photos"
+                  src="https://images.unsplash.com/photo-1600585152220-90363fe7e115"
+                  description="Browse our gallery of moving and packing services."
                 />
                 <ProductItem
                   title="Videos"
-                  href="/videos"
-                  src="https://www.yrcpackersmovers.com/admin/assets/images/1717653770yrc%20(4).jpeg"
-                  description="Creative works & showreels."
+                  href="/media#videos"
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c"
+                  description="Watch our service showcase videos."
                 />
               </div>
             </MenuItem>
@@ -222,8 +264,13 @@ function NavbarComponent({ className }) {
           >
             <MenuItem setActive={setActive} active={active} item="Blog">
               <div className="flex flex-col space-y-4 text-sm">
-                <HoveredLink href="/blog">Blogs</HoveredLink>
-                <HoveredLink href="/blog">Tranding Blogs</HoveredLink>
+                <HoveredLink href="/blog">All Posts</HoveredLink>
+                <HoveredLink href="/blog?category=tips">
+                  Moving Tips
+                </HoveredLink>
+                <HoveredLink href="/blog?category=guides">
+                  Packing Guides
+                </HoveredLink>
               </div>
             </MenuItem>
           </div>
@@ -257,16 +304,36 @@ function NavbarComponent({ className }) {
             onClick={() =>
               setMobileSubmenu(mobileSubmenu === "services" ? "" : "services")
             }
-            className="text-left font-semibold"
+            className="text-left font-semibold flex items-center justify-between"
           >
-            Services
+            <span>Services</span>
+            <svg
+              className={`w-4 h-4 transition-transform ${
+                mobileSubmenu === "services" ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
           </button>
           {mobileSubmenu === "services" && (
             <div className="pl-4 flex flex-col gap-2 text-sm">
-              <Link href="/web-dev">Web Development</Link>
-              <Link href="/interface-design">Interface Design</Link>
-              <Link href="/seo">Search Engine Optimization</Link>
-              <Link href="/branding">Branding</Link>
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.title}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.title}
+                </Link>
+              ))}
             </div>
           )}
 
@@ -274,14 +341,36 @@ function NavbarComponent({ className }) {
             onClick={() =>
               setMobileSubmenu(mobileSubmenu === "media" ? "" : "media")
             }
-            className="text-left font-semibold"
+            className="text-left font-semibold flex items-center justify-between"
           >
-            Media
+            <span>Media</span>
+            <svg
+              className={`w-4 h-4 transition-transform ${
+                mobileSubmenu === "media" ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
           </button>
           {mobileSubmenu === "media" && (
             <div className="pl-4 flex flex-col gap-2 text-sm">
-              <Link href="/photos">Photos</Link>
-              <Link href="/videos">Videos</Link>
+              {mediaLinks.map((link) => (
+                <Link
+                  key={link.title}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.title}
+                </Link>
+              ))}
             </div>
           )}
 
@@ -289,24 +378,42 @@ function NavbarComponent({ className }) {
             onClick={() =>
               setMobileSubmenu(mobileSubmenu === "blog" ? "" : "blog")
             }
-            className="text-left font-semibold"
+            className="text-left font-semibold flex items-center justify-between"
           >
-            Blog
+            <span>Blog</span>
+            <svg
+              className={`w-4 h-4 transition-transform ${
+                mobileSubmenu === "blog" ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
           </button>
           {mobileSubmenu === "blog" && (
             <div className="pl-4 flex flex-col gap-2 text-sm">
-              <Link href="/blogs">Blogs</Link>
-              <Link href="/articles">Articles</Link>
-              <Link href="/news">News</Link>
+              {blogLinks.map((link) => (
+                <Link
+                  key={link.title}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.title}
+                </Link>
+              ))}
             </div>
           )}
 
-          <Link href="/pricing" onClick={() => setMenuOpen(false)}>
-            <HoveredLink href="/pricing">Pricing</HoveredLink>
-          </Link>
-          <Link href="/contact" onClick={() => setMenuOpen(false)}>
-            <button className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition">
-              Contact Us
+          <Link href="/get-quote" onClick={() => setMenuOpen(false)}>
+            <button className="w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition">
+              Get a Quote
             </button>
           </Link>
         </div>

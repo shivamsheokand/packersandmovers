@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-
+import Link from "next/link";
 export default function ThreeDMarqueePage() {
   const images = [
     "https://assets.aceternity.com/placeholders-and-vanish-input.png",
@@ -16,7 +16,7 @@ export default function ThreeDMarqueePage() {
   ];
 
   return (
-    <div className="relative mx-auto  flex h-screen w-full  flex-col items-center justify-center overflow-hidden  px-4">
+    <div className="relative mx-auto  flex h-[550px] md:h-screen w-full  flex-col items-center justify-center overflow-hidden  px-4">
       <h2 className="relative z-20 text-center text-3xl font-bold text-white md:text-5xl">
         Making Every{" "}
         <span className="relative inline-block rounded-xl bg-blue-500/40 px-3 py-1 text-white underline decoration-sky-500 decoration-[6px] underline-offset-[10px] backdrop-blur-sm">
@@ -31,12 +31,16 @@ export default function ThreeDMarqueePage() {
       </p>
 
       <div className="relative z-20 mt-6 flex flex-wrap items-center justify-center gap-4">
-        <button className="rounded-md bg-sky-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
-          Join the club
-        </button>
-        <button className="rounded-md border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2">
-          Read more
-        </button>
+        <Link href="/get-quote">
+          <button className="rounded-md bg-sky-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
+            Get a free quote
+          </button>
+        </Link>
+        <Link href="/contact">
+          <button className="rounded-md border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2">
+            Contact Us
+          </button>
+        </Link>
       </div>
 
       {/* overlay */}
