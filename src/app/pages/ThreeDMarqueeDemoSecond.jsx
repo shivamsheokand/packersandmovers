@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 export default function ThreeDMarqueePage() {
   const images = [
     "https://assets.aceternity.com/placeholders-and-vanish-input.png",
@@ -16,15 +17,15 @@ export default function ThreeDMarqueePage() {
   ];
 
   return (
-    <div className="relative mx-auto  flex h-[550px] md:h-screen w-full  flex-col items-center justify-center overflow-hidden  px-4">
-      <h2 className="relative z-20 text-center text-3xl font-bold text-white md:text-5xl">
+    <div className="relative mx-auto mt-[63px] flex h-[500px] md:h-[90vh] w-full flex-col items-center justify-center overflow-hidden px-4">
+      <h2 className="relative z-20 mt-16 text-center text-3xl md:text-6xl font-bold text-white">
         Making Every{" "}
-        <span className="relative inline-block rounded-xl bg-blue-500/40 px-3 py-1 text-white underline decoration-sky-500 decoration-[6px] underline-offset-[10px] backdrop-blur-sm">
+        <span className="relative inline-block rounded-xl bg-blue-500/40 px-3 py-1 text-red-600 underline decoration-sky-500 decoration-[6px] underline-offset-[10px] backdrop-blur-sm">
           Move
         </span>{" "}
         Hassle-Free and Memorable.
       </h2>
-      <p className="relative z-20 mt-4 max-w-2xl text-center text-sm text-neutral-200 md:text-base">
+      <p className="relative z-20 md:text-2xl mt-4 max-w-2xl text-center text-sm text-neutral-200">
         Whether you're shifting homes or relocating offices, we handle your
         belongings with care and precision. Trust our experienced team to move
         you safely, securely, and stress-free — every step of the way.
@@ -32,15 +33,24 @@ export default function ThreeDMarqueePage() {
 
       <div className="relative z-20 mt-6 flex flex-wrap items-center justify-center gap-4">
         <Link href="/get-quote">
-          <button className="rounded-md bg-sky-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
+          <button className="rounded-md md:px-8 md:py-4 md:text-2xl bg-sky-600 px-5 py-2 text-sm  font-medium text-white transition-colors hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2">
             Get a free quote
           </button>
         </Link>
         <Link href="/contact">
-          <button className="rounded-md border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2">
+          <button className="rounded-md border md:px-8 md:py-4 md:text-2xl border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2">
             Contact Us
           </button>
         </Link>
+      </div>
+      {/* Animated Swipe Down Arrow */}
+      <div className="relative z-20 flex justify-center">
+        <div className="animate-bounce mt-8 text-white flex flex-col items-center">
+          <span className="text-lg text-red-600 font-extrabold">
+            Scroll Down
+          </span>
+          <ChevronDown className="w-20 h-20" />
+        </div>
       </div>
 
       {/* overlay */}
@@ -53,18 +63,22 @@ export default function ThreeDMarqueePage() {
 
 function ThreeDMarquee({ images }) {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-center space-y-6 overflow-hidden px-4 py-10">
-      <MarqueeRow images={images} direction="left" />
+    <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-center overflow-hidden px-4 py-10 space-y-6">
+      <MarqueeRow
+        images={images}
+        direction="left"
+        className="mt-[40px] md:mt-[60px]"
+      />
       <MarqueeRow images={images} direction="right" />
-      <MarqueeRow images={images} direction="left" />
+      <MarqueeRow images={images} direction="left" className="md:mb-2" />
     </div>
   );
 }
 
-function MarqueeRow({ images, direction = "left" }) {
+function MarqueeRow({ images, direction = "left", className = "" }) {
   return (
     <div
-      className={`animate-marquee-${direction} flex w-full space-x-6`}
+      className={`animate-marquee-${direction} flex w-full space-x-2 ${className}`}
       style={{ animationDuration: "30s" }}
     >
       {images.map((src, idx) => (
@@ -72,16 +86,15 @@ function MarqueeRow({ images, direction = "left" }) {
           key={idx}
           src={src}
           alt={`img-${idx}`}
-          className="h-32 w-auto flex-shrink-0 rounded-md object-cover opacity-80 shadow-md sm:h-40 md:h-52 lg:h-60"
+          className="h-32 md:h-[158px] w-auto flex-shrink-0 rounded-md object-cover opacity-80 shadow-md"
         />
       ))}
-      {/* Duplicate for seamless loop */}
       {images.map((src, idx) => (
         <img
           key={`dup-${idx}`}
           src={src}
           alt={`dup-img-${idx}`}
-          className="h-32 w-auto flex-shrink-0 rounded-md object-cover opacity-80 shadow-md sm:h-40 md:h-52 lg:h-60"
+          className="h-32 w-auto flex-shrink-0 rounded-md object-cover opacity-80 shadow-md"
         />
       ))}
       <style jsx>{`

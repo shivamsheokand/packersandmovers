@@ -55,13 +55,13 @@ const HeroSection = () => {
               </motion.div>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#000000] leading-tight">
               Move with
               <span className="text-red-600"> Confidence</span> and{" "}
               <span className="text-red-600">Care</span>
             </h1>
 
-            <p className="text-xl text-gray-600 max-w-xl">
+            <p className="text-xl text-[#000000] max-w-xl">
               Experience hassle-free relocation with our premium moving
               services. Professional team, advanced equipment, and dedicated
               support at every step.
@@ -101,7 +101,9 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <p className="text-gray-600">Quick Response Time</p>
-                  <p className="font-semibold">24/7 Customer Support</p>
+                  <p className="font-semibold text-teal-950">
+                    24/7 Customer Support
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -133,8 +135,10 @@ const HeroSection = () => {
                     <FaCheck className="text-green-600" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">Verified by</p>
-                    <p className="font-semibold">10,000+ Customers</p>
+                    <p className="text-sm text-black">Verified by</p>
+                    <p className="font-semibold text-teal-950">
+                      10,000+ Customers
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -171,7 +175,7 @@ const HeroSection = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-20"
         >
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-bold text-[#000000] text-center mb-12">
             Our Premium Services
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -188,7 +192,9 @@ const HeroSection = () => {
                   <div className="bg-red-100 p-3 rounded-full">
                     <FaTruck className="text-2xl text-red-600" />
                   </div>
-                  <h3 className="text-xl font-semibold">{service}</h3>
+                  <h3 className="text-xl text-[#000000] font-semibold">
+                    {service}
+                  </h3>
                 </div>
               </motion.div>
             ))}
@@ -207,8 +213,10 @@ const HeroSection = () => {
               <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FaShieldAlt className="text-2xl text-red-600" />
               </div>
-              <h4 className="font-semibold mb-2">Fully Insured</h4>
-              <p className="text-gray-600">
+              <h4 className="font-semibold text-teal-950 mb-2">
+                Fully Insured
+              </h4>
+              <p className="text-[#000000]">
                 Complete protection for your belongings
               </p>
             </div>
@@ -216,8 +224,10 @@ const HeroSection = () => {
               <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FaBoxOpen className="text-2xl text-red-600" />
               </div>
-              <h4 className="font-semibold mb-2">Professional Packing</h4>
-              <p className="text-gray-600">
+              <h4 className="font-semibold text-teal-950 mb-2">
+                Professional Packing
+              </h4>
+              <p className="text-[#000000]">
                 High-quality materials & techniques
               </p>
             </div>
@@ -225,8 +235,10 @@ const HeroSection = () => {
               <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FaMapMarkerAlt className="text-2xl text-red-600" />
               </div>
-              <h4 className="font-semibold mb-2">Pan India Service</h4>
-              <p className="text-gray-600">Covering all major cities</p>
+              <h4 className="font-semibold text-teal-950 mb-2">
+                Pan India Service
+              </h4>
+              <p className="text-[#000000]">Covering all major cities</p>
             </div>
           </div>
         </motion.div>

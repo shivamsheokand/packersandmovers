@@ -1,9 +1,48 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
+// default data
+const Ddata = [
+  {
+    id: 7,
+    name: "Om Technoware",
+    image: "images/ckcOVVKpBKYcyiyTu8Dnwq6B5a49eXpM1GIKTi8B.png",
+    email: "info@omtechnoware.com",
+    phone: "+91 8607295210",
+    address: "123, Tech Park, Sector 15, Mumbai, India",
+    insta: "https://instagram.com/developer.shivam_",
+    fb: "https://www.facebook.com/www.aicoders.in",
+    twitter: "https://x.com/_ShivamSheokand",
+    linkedin: "https://instagram.com/developer.shivam_",
+    whatsapp: "8607295210",
+    description:
+      "Professional packers and movers providing comprehensive relocation services across India and worldwide.",
+    time: null,
+    created_at: "2025-05-22T06:13:09.000000Z",
+    updated_at: "2025-05-23T10:06:25.000000Z",
+  },
+];
+
 const ContactPage = () => {
+  const [data, setData] = useState(Ddata);
+  useEffect(() => {
+    async function fetchdata() {
+      try {
+        const res = await fetch("http://localhost:8000/api/navapi");
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        setData(data);
+      } catch (error) {
+        console.log("Error fetching data:12345");
+        setData(data);
+      }
+    }
+    fetchdata();
+  }, []);
   return (
     <div className="pt-24">
       {/* Contact Hero Section */}
@@ -93,7 +132,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Phone</h3>
-                    <p className="text-gray-600">+91 12345 67890</p>
+                    <p className="text-gray-600"> {data[0]["phone"]}</p>
                   </div>
                 </div>
               </div>
@@ -105,7 +144,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Email</h3>
-                    <p className="text-gray-600">info@omtechnoware.com</p>
+                    <p className="text-gray-600">{data[0]["email"]}</p>
                   </div>
                 </div>
               </div>
@@ -117,11 +156,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Address</h3>
-                    <p className="text-gray-600">
-                      123 Business Street, Technology Park,
-                      <br />
-                      City, State - 123456
-                    </p>
+                    <p className="text-gray-600">{data[0]["address"]}</p>
                   </div>
                 </div>
               </div>

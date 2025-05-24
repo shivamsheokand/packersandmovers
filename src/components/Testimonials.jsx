@@ -41,8 +41,10 @@ const Testimonials = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">Customer Reviews</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-black mb-4">
+            Customer Reviews
+          </h2>
+          <p className="text-black max-w-2xl mx-auto">
             Don't just take our word for it. Here's what our customers have to
             say about our services.
           </p>
@@ -69,10 +71,10 @@ const Testimonials = () => {
                   className="w-16 h-16 rounded-full object-cover"
                 />
                 <div>
-                  <h4 className="font-semibold text-lg">{testimonial.name}</h4>
-                  <p className="text-gray-600 text-sm">
-                    {testimonial.location}
-                  </p>
+                  <h4 className="font-semibold text-teal-950 text-lg">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-black text-sm">{testimonial.location}</p>
                   <div className="flex gap-1 mt-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <FaStar key={i} className="text-yellow-400" />
@@ -81,7 +83,7 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              <p className="text-gray-600">{testimonial.comment}</p>
+              <p className="text-black">{testimonial.comment}</p>
             </motion.div>
           ))}
         </div>
@@ -100,9 +102,7 @@ const Testimonials = () => {
                 <FaStar key={i} className="text-yellow-400" />
               ))}
             </div>
-            <p className="text-sm text-gray-600 mt-1">
-              Average Customer Rating
-            </p>
+            <p className="text-sm text-black mt-1">Average Customer Rating</p>
           </div>
         </motion.div>
       </div>

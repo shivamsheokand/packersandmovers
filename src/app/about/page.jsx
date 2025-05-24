@@ -51,11 +51,11 @@ const AboutPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-black mb-6">
               About <span className="text-red-600">OM Technoware</span> Packers
               & Movers
             </h1>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-black mb-8">
               Your trusted partner in professional relocation services with over
               a decade of experience in making moves smooth and stress-free.
             </p>
@@ -84,19 +84,19 @@ const AboutPage = () => {
           >
             <div className="text-center">
               <div className="text-4xl font-bold text-red-600 mb-2">10+</div>
-              <div className="text-gray-600">Years Experience</div>
+              <div className="text-black">Years Experience</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-600 mb-2">5000+</div>
-              <div className="text-gray-600">Happy Customers</div>
+              <div className="text-black">Happy Customers</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-600 mb-2">50+</div>
-              <div className="text-gray-600">Cities Covered</div>
+              <div className="text-black">Cities Covered</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-600 mb-2">100+</div>
-              <div className="text-gray-600">Team Members</div>
+              <div className="text-black">Team Members</div>
             </div>
           </motion.div>
         </div>
@@ -109,7 +109,7 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
+            className="text-3xl text-black md:text-4xl font-bold text-center mb-12"
           >
             Why Choose Us
           </motion.h2>
@@ -129,8 +129,10 @@ const AboutPage = () => {
               />
               <div className="p-6 text-center">
                 <FaAward className="text-4xl text-red-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl text-black font-semibold mb-2">
+                  Expert Team
+                </h3>
+                <p className="text-black">
                   Our team comprises highly trained professionals who ensure
                   your belongings are handled with utmost care.
                 </p>
@@ -151,8 +153,10 @@ const AboutPage = () => {
               />
               <div className="p-6 text-center">
                 <FaUsers className="text-4xl text-red-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Customer First</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  Customer First
+                </h3>
+                <p className="text-black">
                   We prioritize customer satisfaction, ensuring a seamless
                   moving experience from start to finish.
                 </p>
@@ -173,8 +177,10 @@ const AboutPage = () => {
               />
               <div className="p-6 text-center">
                 <FaTruck className="text-4xl text-red-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Modern Fleet</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl text-black font-semibold mb-2">
+                  Modern Fleet
+                </h3>
+                <p className="text-black">
                   Our fleet of well-maintained vehicles ensures safe and timely
                   delivery of your possessions.
                 </p>
@@ -195,10 +201,10 @@ const AboutPage = () => {
               />
               <div className="p-6 text-center">
                 <FaHandshake className="text-4xl text-red-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">
+                <h3 className="text-xl text-black font-semibold mb-2">
                   Transparent Pricing
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-black">
                   We offer clear and upfront pricing with no hidden charges,
                   ensuring trust and reliability.
                 </p>
@@ -232,16 +238,16 @@ const AboutPage = () => {
             transition={{ duration: 0.8 }}
             className="md:w-1/2 md:pl-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-black mb-4">
               Reliable and Efficient Moving Services
             </h2>
-            <p className="text-gray-600 mb-4">
+            <p className="text-black mb-4">
               At OM Technoware Packers & Movers, we understand the importance of
               a hassle-free moving experience. Our dedicated team ensures that
               every aspect of your move is handled with professionalism and
               care.
             </p>
-            <p className="text-gray-600">
+            <p className="text-black">
               From packing to transportation, we offer comprehensive services
               tailored to meet your specific needs. Trust us to make your
               relocation smooth and stress-free.

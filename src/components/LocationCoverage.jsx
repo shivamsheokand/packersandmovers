@@ -78,8 +78,10 @@ const LocationCoverage = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">Our Coverage Area</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl text-[#000000] font-bold mb-4">
+            Our Coverage Area
+          </h2>
+          <p className="text-[#000000] max-w-2xl mx-auto">
             We provide moving and packing services across all major cities in
             India
           </p>
@@ -119,7 +121,7 @@ const LocationCoverage = () => {
           className="mt-12 text-center"
         >
           <div className="bg-red-50 inline-block px-6 py-4 rounded-lg">
-            <p className="text-gray-700">
+            <p className="text-[#000000]">
               <span className="font-semibold">Don't see your city?</span> We
               might still be able to help!
             </p>

@@ -163,20 +163,20 @@ function NavbarComponent({ className }) {
     <nav
       ref={navRef}
       className={cn(
-        "fixed top-0 inset-x-0 z-50 md:bg-white bg-gray-200",
+        "fixed top-0 inset-x-0 z-50 md:bg-[#000000 ] text-white bg-[#000000] shadow-lg transition-all duration-300 ease-in-out",
         className
       )}
     >
       {/* Mini Header */}
       <div
         className={cn(
-          "w-full text-white text-xs sm:text-sm font-medium bg-orange-700 overflow-hidden transition-all duration-300 ease-in-out",
+          "w-full text-[#F5EEDD] text-xs sm:text-sm font-medium bg-[#BE3144] overflow-hidden transition-all duration-300 ease-in-out",
           hideMiniHeader
             ? "h-0 opacity-0 overflow-hidden"
             : "h-auto opacity-100"
         )}
       >
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
+        <div className="max-w-7xl text-[#F5EEDD] mx-auto flex justify-between items-center px-4 py-2">
           {/* Left - Contact Info */}
           <ul className="flex md:font-bold md:text-xl flex-wrap items-center gap-4 md:gap-10 text-xs sm:text-sm font-medium">
             {/* // for dinamic data */}
@@ -225,7 +225,7 @@ function NavbarComponent({ className }) {
       </div>
 
       {/* Main Nav */}
-      <div className="max-w-7xl md:bg-white bg-gray-400 mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-7xl md:bg-[#000000] bg-[#000000] text-[#F5EEDD] mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
           <div className="flex items-center gap-2">
@@ -243,12 +243,16 @@ function NavbarComponent({ className }) {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-16 font-bold">
+        <div className="hidden text-[#F5EEDD] md:flex items-center space-x-16 font-bold">
           <Link href="/">
-            <HoveredLink href="/">Home</HoveredLink>
+            <HoveredLink href="/">
+              <span className="text-white">Home</span>
+            </HoveredLink>
           </Link>
           <Link href="/about">
-            <HoveredLink href="/about">About Us</HoveredLink>
+            <HoveredLink href="/about">
+              <span className="text-white">About Us</span>
+            </HoveredLink>
           </Link>
 
           <div
@@ -322,7 +326,7 @@ function NavbarComponent({ className }) {
           </div>
 
           <Link href="/contact">
-            <button className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition">
+            <button className="bg-[#06202B] text-white px-4 py-2 rounded-full hover:bg-gray-800 transition">
               Contact Us
             </button>
           </Link>
@@ -338,20 +342,24 @@ function NavbarComponent({ className }) {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden mt-2 flex flex-col space-y-2 bg-gray-200 p-4 text-2xl">
+        <div className="md:hidden text-black font-bold mt-2 flex flex-col space-y-2 bg-[#000] p-4 text-2xl">
           <Link
             className="bg-gray-300 p-2 rounded-md"
             href="/"
             onClick={() => setMenuOpen(false)}
           >
-            <HoveredLink href="/">Home</HoveredLink>
+            <HoveredLink href="/">
+              <span className="text-red-600">Home</span>
+            </HoveredLink>
           </Link>
           <Link
             className="bg-gray-300 p-2 rounded-md"
             href="/about"
             onClick={() => setMenuOpen(false)}
           >
-            <HoveredLink href="/about">About Us</HoveredLink>
+            <HoveredLink href="/about">
+              <span className="text-red-600">About Us</span>
+            </HoveredLink>
           </Link>
 
           <button
@@ -378,7 +386,7 @@ function NavbarComponent({ className }) {
             </svg>
           </button>
           {mobileSubmenu === "services" && (
-            <div className="pl-4 flex flex-col gap-2 bg-gray-200 p-2 rounded-md text-xl">
+            <div className="pl-4 flex flex-col gap-2 bg-[#000] p-2 rounded-md text-xl">
               {serviceLinks.map((link) => (
                 <Link
                   className="bg-gray-200 p-2 border-2 border-gray-900 rounded-md text-xl"

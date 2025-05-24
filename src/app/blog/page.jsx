@@ -39,10 +39,10 @@ export const metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 bg-white mt-20 py-12">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Our Blog</h1>
-        <p className="text-xl text-gray-600 mb-12">
+        <h1 className="text-4xl font-bold text-black mb-8">Our Blog</h1>
+        <p className="text-xl text-black mb-12">
           Stay updated with the latest moving tips, industry news, and helpful
           guides.
         </p>

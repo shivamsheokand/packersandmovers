@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 // This would typically come from a CMS or API
 const blogPosts = {
-  'top-10-moving-tips': {
+  "top-10-moving-tips": {
     title: "Top 10 Tips for a Successful Move",
     date: "May 20, 2025",
     image: "https://source.unsplash.com/random/1200x600/?moving",
@@ -40,8 +40,8 @@ export default function BlogPost({ params }) {
 
   if (!post) {
     return (
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Post not found</h1>
+      <div className="container mt-20 mx-auto bg-white px-4 py-12">
+        <h1 className="text-4xl font-bold text-black mb-8">Post not found</h1>
         <Link href="/blog" className="text-blue-600 hover:text-blue-800">
           ← Back to Blog
         </Link>
@@ -50,15 +50,18 @@ export default function BlogPost({ params }) {
   }
 
   return (
-    <article className="container mx-auto px-4 py-12">
+    <article className="container mx-auto bg-white mt-20 px-4 py-12">
       <div className="max-w-4xl mx-auto">
-        <Link href="/blog" className="text-blue-600 hover:text-blue-800 mb-8 inline-block">
+        <Link
+          href="/blog"
+          className="text-blue-600 hover:text-blue-800 mb-8 inline-block"
+        >
           ← Back to Blog
         </Link>
-        
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
-        <div className="text-gray-600 mb-8">{post.date}</div>
-        
+
+        <h1 className="text-4xl font-bold text-black mb-4">{post.title}</h1>
+        <div className="text-black mb-8">{post.date}</div>
+
         <div className="relative h-[400px] w-full mb-8">
           <Image
             src={post.image}
@@ -68,8 +71,8 @@ export default function BlogPost({ params }) {
           />
         </div>
 
-        <div 
-          className="prose prose-lg max-w-none"
+        <div
+          className="prose text-black prose-lg max-w-none"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>

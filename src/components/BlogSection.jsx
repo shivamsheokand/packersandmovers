@@ -45,8 +45,10 @@ const BlogSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">Latest Blog Posts</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-black">
+            Latest Blog Posts
+          </h2>
+          <p className="text-[#000000] max-w-2xl mx-auto">
             Stay updated with our latest moving tips, guides, and industry
             insights
           </p>
@@ -76,9 +78,11 @@ const BlogSection = () => {
               </div>
 
               <div className="p-6">
-                <p className="text-gray-500 text-sm mb-2">{blog.date}</p>
-                <h3 className="text-xl font-semibold mb-2">{blog.title}</h3>
-                <p className="text-gray-600 mb-4">{blog.excerpt}</p>
+                <p className="text-[#000000] text-sm mb-2">{blog.date}</p>
+                <h3 className="text-xl text-teal-900 font-semibold mb-2">
+                  {blog.title}
+                </h3>
+                <p className="text-[#000000] mb-4">{blog.excerpt}</p>
                 <Link
                   href="/blog"
                   className="text-red-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"

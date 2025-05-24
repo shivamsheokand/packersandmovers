@@ -105,7 +105,7 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-16">
+    <div className="min-h-screen mt-20 bg-gray-50 py-16">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
