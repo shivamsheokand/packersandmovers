@@ -7,10 +7,12 @@ import Testimonials from "../components/Testimonials";
 import BlogSection from "../components/BlogSection";
 import LocationCoverage from "../components/LocationCoverage";
 import ThreeDMarqueePage from "./pages/ThreeDMarqueeDemoSecond";
+import ApiComponent from "./test/page";
 
 export default function Home() {
   return (
     <PageContainer className="pt-0">
+      {/* <ApiComponent /> */}
       <ThreeDMarqueePage />
       <HeroSection />
       <WorkProcess />

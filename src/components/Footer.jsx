@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaFacebookF,
   FaTwitter,
@@ -13,7 +14,51 @@ import {
   FaClock,
 } from "react-icons/fa";
 
+// default data
+const Ddata = [
+  {
+    id: 7,
+    name: "Om Technoware",
+    image: "images/ckcOVVKpBKYcyiyTu8Dnwq6B5a49eXpM1GIKTi8B.png",
+    email: "info@omtechnoware.com",
+    phone: "+91 8607295210",
+    address: "123, Tech Park, Sector 15, Mumbai, India",
+    insta: "https://instagram.com/developer.shivam_",
+    fb: "https://www.facebook.com/www.aicoders.in",
+    twitter: "https://x.com/_ShivamSheokand",
+    linkedin: "https://instagram.com/developer.shivam_",
+    whatsapp: "8607295210",
+    description:
+      "Professional packers and movers providing comprehensive relocation services across India and worldwide.",
+    time: null,
+    created_at: "2025-05-22T06:13:09.000000Z",
+    updated_at: "2025-05-23T10:06:25.000000Z",
+  },
+];
+
+// Footer component
 const Footer = () => {
+  // for get display data from backend
+
+  const [data, setData] = useState(Ddata);
+  // const [haserror, setHasError] = useState(false);
+  useEffect(() => {
+    try {
+      async function fetchdata() {
+        const res = await fetch("http://localhost:8000/api/navapi");
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        setData(data);
+      }
+      fetchdata();
+    } catch (error) {
+      console.log("Error fetching data:12345");
+      setData(data);
+    }
+  }, []);
+
   const quickLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
@@ -43,23 +88,23 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <FaPhoneAlt className="text-red-500" />,
-      text: "+91 12345 67890",
-      href: "tel:+911234567890",
+      text: data[0]["phone"],
+      href: "tel:+91" + data[0]["phone"],
     },
     {
       icon: <FaWhatsapp className="text-red-500" />,
-      text: "+91 98765 43210",
-      href: "https://wa.me/919876543210",
+      text: "+91" + data[0]["whatsapp"],
+      href: "https://wa.me/" + data[0]["whatsapp"],
     },
     {
       icon: <FaEnvelope className="text-red-500" />,
-      text: "info@omtechnoware.com",
-      href: "mailto:info@omtechnoware.com",
+      text: data[0]["email"],
+      href: "mailto:" + data[0]["email"],
     },
     {
       icon: <FaMapMarkerAlt className="text-red-500" />,
-      text: "123, Tech Park, Sector 15, Mumbai, India",
-      href: "https://goo.gl/maps/your-location",
+      text: data[0]["address"],
+      href: "https://goo.gl/maps" + data[0]["address"],
     },
     {
       icon: <FaClock className="text-red-500" />,
@@ -71,27 +116,22 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: <FaFacebookF />,
-      href: "https://facebook.com/omtechnoware",
+      href: data[0]["fb"],
       label: "Facebook",
     },
     {
       icon: <FaTwitter />,
-      href: "https://twitter.com/omtechnoware",
+      href: data[0]["twitter"],
       label: "Twitter",
     },
     {
       icon: <FaInstagram />,
-      href: "https://instagram.com/omtechnoware",
+      href: data[0]["linkdin"],
       label: "Instagram",
     },
     {
-      icon: <FaLinkedinIn />,
-      href: "https://linkedin.com/company/omtechnoware",
-      label: "LinkedIn",
-    },
-    {
       icon: <FaWhatsapp />,
-      href: "https://wa.me/919876543210",
+      href: "https://wa.me/91" + data[0]["whatsapp"],
       label: "WhatsApp",
     },
   ];
@@ -103,17 +143,16 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <Link href="/" className="flex items-center mb-6">
-              <img
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAtFBMVEVHcEwHAKkIAKkIAKkGALYIAKkFAKwFAKoIAKkIAKkGAKsDALYDAK8GAKoGAKv7Cwf7Cgf8CgX7CgcHAKkGAKv6Cgj6Cgn5CgoSAKcAAKsIAKnvCRb7Cgf+CgDFCEQAAK76Cgj7CgjPCEgCAK77CgbUCEXLCTrLCTrMCTlRA45TA41TA44AALNaA5VfBI/5Cgr5Cgr5Cgr6Cgh4BYP7Cgj/DAD6Cgj5CgoEAKyaB3veCTj1ChWcs7fVAAAAPHRSTlMAFiEsCVWe0vb/ekZqk+0VufLL4j3m//qp/4A0qv99rUFyiryBhf+n//+s4f+Fht2RSw1lICXE1YgZjl2US3MkAAABJElEQVR4Ac3QBXKEQBRF0YfTMDh83DLu7vtf17hWFpDc8j7t+A9xvCAInPh7XJIVld1SFe3LRb0hCbzAcxwvGebF9RdZtuNaMvMAnykA9AvzTwwoJCeKmQ/jOgMQTZY8LCUXWV6UzIB5R0hMe2BFGer8p8k8nj1QZPwT8wytvG0qcRnHd+SfuyLtdFH0iv6gf2l4X4ln/qiENhrndp47eYB31hVZBC2e5NmUZuEHztNPnFFFHzhdAOCZ2vDiZW5jtfjAOV1XwmCMlet8A3xii7b3T99J4v5wBMcd2i+siTYLYGdoiawYzWZUlvoLF0QU1tB32m4nG8ZuZ8gNWNXi+XPXsuMKj9Z1a45nqw3dCoOt606D7SzFZ6vanjpETrCZXTb4286DVhvvrRwAvQAAAABJRU5ErkJggg=="
+              <Image
+                src={`http://localhost:8000/storage/${data[0]["image"]}`}
+                width={40}
+                height={40}
                 alt="OM Technoware"
                 className="h-10 w-10 rounded-full"
               />
-              <span className="ml-3 text-xl font-bold">OM Technoware</span>
+              <span className="ml-3 text-xl font-bold">{data[0]["name"]}</span>
             </Link>
-            <p className="text-gray-400 mb-6">
-              Professional packers and movers providing comprehensive relocation
-              services across India and worldwide.
-            </p>
+            <p className="text-gray-400 mb-6">{data[0]["description"]}</p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a

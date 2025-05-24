@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   HoveredLink,
   Menu,
@@ -59,6 +60,27 @@ export function NavbarDemo() {
     </div>
   );
 }
+// default data
+const Ddata = [
+  {
+    id: 7,
+    name: "Om Technoware",
+    image: "images/ckcOVVKpBKYcyiyTu8Dnwq6B5a49eXpM1GIKTi8B.png",
+    email: "info@omtechnoware.com",
+    phone: "+91 8607295210",
+    address: "123, Tech Park, Sector 15, Mumbai, India",
+    insta: "https://instagram.com/developer.shivam_",
+    fb: "https://www.facebook.com/www.aicoders.in",
+    twitter: "https://x.com/_ShivamSheokand",
+    linkedin: "https://instagram.com/developer.shivam_",
+    whatsapp: "8607295210",
+    description:
+      "Professional packers and movers providing comprehensive relocation services across India and worldwide.",
+    time: null,
+    created_at: "2025-05-22T06:13:09.000000Z",
+    updated_at: "2025-05-23T10:06:25.000000Z",
+  },
+];
 
 function NavbarComponent({ className }) {
   const [active, setActive] = useState(null);
@@ -68,6 +90,29 @@ function NavbarComponent({ className }) {
   const [hideMiniHeader, setHideMiniHeader] = useState(false);
   const navRef = useRef();
   const lastScrollTop = useRef(0);
+
+  // for get display data from backend
+
+  const [data, setData] = useState(Ddata);
+  // const [haserror, setHasError] = useState(false);
+  useEffect(() => {
+    try {
+      async function fetchdata() {
+        const res = await fetch("http://localhost:8000/api/navapi");
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        setData(data);
+      }
+      fetchdata();
+    } catch (error) {
+      console.log("Error fetching data:12345");
+      setData(data);
+    }
+  }, []);
+
+  // console.log(data);
 
   const handleMouseEnter = (item) => {
     if (!clickedItem) setActive(item);
@@ -117,12 +162,15 @@ function NavbarComponent({ className }) {
   return (
     <nav
       ref={navRef}
-      className={cn("fixed top-0 inset-x-0 z-50 bg-white", className)}
+      className={cn(
+        "fixed top-0 inset-x-0 z-50 md:bg-white bg-gray-200",
+        className
+      )}
     >
       {/* Mini Header */}
       <div
         className={cn(
-          "w-full text-white text-xs sm:text-sm font-medium bg-red-600 transition-all duration-300 ease-in-out",
+          "w-full text-white text-xs sm:text-sm font-medium bg-orange-700 overflow-hidden transition-all duration-300 ease-in-out",
           hideMiniHeader
             ? "h-0 opacity-0 overflow-hidden"
             : "h-auto opacity-100"
@@ -131,47 +179,42 @@ function NavbarComponent({ className }) {
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
           {/* Left - Contact Info */}
           <ul className="flex md:font-bold md:text-xl flex-wrap items-center gap-4 md:gap-10 text-xs sm:text-sm font-medium">
+            {/* // for dinamic data */}
             <li>
               <Link
                 href="mailto:info@omtechnoware.com"
                 className="hover:underline"
               >
-                info@omtechnoware.com
+                {data[0]["email"]}
+                {/* info@omtechnoware.com */}
               </Link>
             </li>
+
             <li>
               <Link href="tel:+911234567890" className="hover:underline">
-                +91 12345 67890
+                {data[0]["phone"]}
               </Link>
             </li>
           </ul>
 
           {/* Right - Social Icons */}
-          <div className="flex items-center gap-4 text-white text-lg">
-            <Link
-              href="https://www.instagram.com"
+          <div className="flex items-center gap-4 px-5 text-white text-lg">
+            <a
+              href={data[0]["linkedin"]}
               target="_blank"
               className="hover:text-gray-300"
             >
               <FaInstagram />
-            </Link>
-            <Link
-              href="https://www.linkedin.com"
-              target="_blank"
-              className="hover:text-gray-300"
-            >
-              {" "}
-              <FaLinkedinIn />
-            </Link>
-            <Link
-              href="https://www.facebook.com"
+            </a>
+            <a
+              href={data[0]["fb"]}
               target="_blank"
               className="hover:text-gray-300"
             >
               <FaFacebookF />
-            </Link>
+            </a>
             <Link
-              href="https://wa.me/1234567890"
+              href={`https://wa.me/${data[0]["whatsapp"]}`}
               target="_blank"
               className="hover:text-gray-300"
             >
@@ -182,17 +225,20 @@ function NavbarComponent({ className }) {
       </div>
 
       {/* Main Nav */}
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-7xl md:bg-white bg-gray-400 mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
           <div className="flex items-center gap-2">
             {/* Logo Image */}
-            <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAtFBMVEVHcEwHAKkIAKkIAKkGALYIAKkFAKwFAKoIAKkIAKkGAKsDALYDAK8GAKoGAKv7Cwf7Cgf8CgX7CgcHAKkGAKv6Cgj6Cgn5CgoSAKcAAKsIAKnvCRb7Cgf+CgDFCEQAAK76Cgj7CgjPCEgCAK77CgbUCEXLCTrLCTrMCTlRA45TA41TA44AALNaA5VfBI/5Cgr5Cgr5Cgr6Cgh4BYP7Cgj/DAD6Cgj5CgoEAKyaB3veCTj1ChWcs7fVAAAAPHRSTlMAFiEsCVWe0vb/ekZqk+0VufLL4j3m//qp/4A0qv99rUFyiryBhf+n//+s4f+Fht2RSw1lICXE1YgZjl2US3MkAAABJElEQVR4Ac3QBXKEQBRF0YfTMDh83DLu7vtf17hWFpDc8j7t+A9xvCAInPh7XJIVld1SFe3LRb0hCbzAcxwvGebF9RdZtuNaMvMAnykA9AvzTwwoJCeKmQ/jOgMQTZY8LCUXWV6UzIB5R0hMe2BFGer8p8k8nj1QZPwT8wytvG0qcRnHd+SfuyLtdFH0iv6gf2l4X4ln/qiENhrndp47eYB31hVZBC2e5NmUZuEHztNPnFFFHzhdAOCZ2vDiZW5jtfjAOV1XwmCMlet8A3xii7b3T99J4v5wBMcd2i+siTYLYGdoiawYzWZUlvoLF0QU1tB32m4nG8ZuZ8gNWNXi+XPXsuMKj9Z1a45nqw3dCoOt606D7SzFZ6vanjpETrCZXTb4286DVhvvrRwAvQAAAABJRU5ErkJggg=="
+            <Image
+              src={`http://localhost:8000/storage/${data[0]["image"]}`}
               alt="Logo"
+              width={40}
+              height={40}
               className="h-10 w-10 rounded-full"
             />
-            <span className="font-bold text-lg">OM Technoware</span>
+            {console.log(data[0]["image"])}
+            <span className="font-bold text-lg">{data[0]["name"]}</span>
           </div>
         </Link>
 
@@ -283,20 +329,28 @@ function NavbarComponent({ className }) {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="md:hidden">
+        <div className="md:hidden mr-4">
           <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+            {menuOpen ? <X size={30} /> : <MenuIcon size={35} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden mt-2 flex flex-col space-y-3 bg-white p-4">
-          <Link href="/" onClick={() => setMenuOpen(false)}>
+        <div className="md:hidden mt-2 flex flex-col space-y-2 bg-gray-200 p-4 text-2xl">
+          <Link
+            className="bg-gray-300 p-2 rounded-md"
+            href="/"
+            onClick={() => setMenuOpen(false)}
+          >
             <HoveredLink href="/">Home</HoveredLink>
           </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}>
+          <Link
+            className="bg-gray-300 p-2 rounded-md"
+            href="/about"
+            onClick={() => setMenuOpen(false)}
+          >
             <HoveredLink href="/about">About Us</HoveredLink>
           </Link>
 
@@ -304,9 +358,9 @@ function NavbarComponent({ className }) {
             onClick={() =>
               setMobileSubmenu(mobileSubmenu === "services" ? "" : "services")
             }
-            className="text-left font-semibold flex items-center justify-between"
+            className="text-left font-semibold flex items-center justify-between bg-gray-300 pr-2 rounded-md"
           >
-            <span>Services</span>
+            <span className="bg-gray-300 p-2 rounded-md">Services</span>
             <svg
               className={`w-4 h-4 transition-transform ${
                 mobileSubmenu === "services" ? "rotate-180" : ""
@@ -324,9 +378,10 @@ function NavbarComponent({ className }) {
             </svg>
           </button>
           {mobileSubmenu === "services" && (
-            <div className="pl-4 flex flex-col gap-2 text-sm">
+            <div className="pl-4 flex flex-col gap-2 bg-gray-200 p-2 rounded-md text-xl">
               {serviceLinks.map((link) => (
                 <Link
+                  className="bg-gray-200 p-2 border-2 border-gray-900 rounded-md text-xl"
                   key={link.title}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
@@ -341,7 +396,7 @@ function NavbarComponent({ className }) {
             onClick={() =>
               setMobileSubmenu(mobileSubmenu === "media" ? "" : "media")
             }
-            className="text-left font-semibold flex items-center justify-between"
+            className="text-left bg-gray-300 p-2 rounded-md font-semibold flex items-center justify-between"
           >
             <span>Media</span>
             <svg
@@ -364,6 +419,7 @@ function NavbarComponent({ className }) {
             <div className="pl-4 flex flex-col gap-2 text-sm">
               {mediaLinks.map((link) => (
                 <Link
+                  className="bg-gray-200 border-2 border-gray-900 p-2 rounded-md text-xl"
                   key={link.title}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
@@ -378,9 +434,9 @@ function NavbarComponent({ className }) {
             onClick={() =>
               setMobileSubmenu(mobileSubmenu === "blog" ? "" : "blog")
             }
-            className="text-left font-semibold flex items-center justify-between"
+            className="text-left bg-gray-300 pr-2 rounded-md font-semibold flex items-center justify-between"
           >
-            <span>Blog</span>
+            <span className="bg-gray-300 p-2 rounded-md">Blog</span>
             <svg
               className={`w-4 h-4 transition-transform ${
                 mobileSubmenu === "blog" ? "rotate-180" : ""
@@ -398,9 +454,10 @@ function NavbarComponent({ className }) {
             </svg>
           </button>
           {mobileSubmenu === "blog" && (
-            <div className="pl-4 flex flex-col gap-2 text-sm">
+            <div className="pl-4 flex flex-col bg-gray-200 p-2 rounded-md gap-2 text-sm">
               {blogLinks.map((link) => (
                 <Link
+                  className="bg-gray-200 border-2 border-gray-900 p-2 rounded-md text-xl"
                   key={link.title}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
